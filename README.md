@@ -31,19 +31,19 @@ La aplicación está compuesta por distintas secciones que simulan el flujo de u
 
 ## 📁 Estructura del proyecto (`public/`)
 
-public/
-├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   ├── script.js
-│   └── chatbot.js
-├── images/
-│   ├── seguridad.avif
-│   ├── estadisticas.jpg
-│   └── celular.png
-└── README.md
-
+├── public/
+│   ├── index.html
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   ├── script.js
+│   │   └── chatbot.js
+│   └── images/
+│       ├── seguridad.avif
+│       ├── estadisticas.jpg
+│       └── celular.png
+├── README.md
+└── .gitignore
 ---
 
 ## ⚙️ Cómo ejecutarlo localmente
