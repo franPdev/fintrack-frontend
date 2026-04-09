@@ -1,4 +1,4 @@
-﻿const API_KEY = 'AIzaSyCBzniiDLKROLPdZLwYbxbTT3OGpZd2-HA';
+﻿const API_KEY = '';
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + API_KEY;
 const STORAGE_KEY = 'fintrack_gastos';
 
