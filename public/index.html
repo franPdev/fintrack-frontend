@@ -1,341 +1,137 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>FinTrack | Finanzas con IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-
-   <!-- Bootstrap -->
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-
-
-
-
-  <title>FinTrack - Tu App de Finanzas</title>
-  
 </head>
-<body class="bg-dark text-light">
-
-  
-
-  
-
-
-  <!-- Header -->
-  <header class="header">
-    <nav class="nav">
-      <h1 class="logo">FinTrack</h1>
-      <ul class="nav-links">
-        <li><a href="#features">Características</a></li>
-        <li><a href="#pricing">Planes</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
-    <section class="hero">
-      <h2>Controla tus finanzas fácilmente</h2>
-      <p>Una app simple para manejar gastos, ingresos y ahorros en un solo lugar.</p>
-      <br>
-      <a href="#pricing" class=" btn-light">Empieza gratis</a>
-    </section>
-  </header>
-
-  <!-- Sección de finanzas -->
-<!-- Finanzas -->
-<section id="finanzas" class="finanzas py-5">
-  <div class="container text-center">
-    <h2 class="mb-4">Tu App de Finanzas</h2>
-    <p class="mb-5">Controla tus ingresos y egresos fácilmente</p>
-    
-    <br>
-
-    <!-- Balance -->
-    <div class="finanzas-balance mb-4">
-      <h3>Balance: <span id="balance">$0</span></h3>
-    </div>
-
-    <br>
-
-    <!-- Formulario -->
-    <form id="finanzas-form" class="finanzas-form">
-      <input type="text" id="descripcion" placeholder="Descripción" required>
-      <input type="number" id="monto" placeholder="Monto" required>
-      <select id="tipo">
-        <option value="ingreso">Ingreso</option>
-        <option value="egreso">Egreso</option>
-      </select>
-      <button type="submit" class=" btn-light">Agregar</button>
-    </form>
-
-    <br>
-
-    <!-- Lista de transacciones -->
-    <div class="finanzas-list mt-4">
-      <ul id="transacciones"></ul>
-    </div>
-  </div>
-
-
-<br>
-
-<div class="container mt-5">
-  <h3 class="mb-4 text-center">Dashboard FinTrack</h3>
-  
-  <div class="row">
-     <div class="col-md-6 d-flex">
-
-      <div class="card shadow-sm p-3 w-100">
-
-        <h5>Balance Mensual</h5>
-        <div id="balanceChart"></div>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="eyebrow">FinTrack</span>
+        <h1>Finanzas personales inteligentes</h1>
       </div>
-    </div>
+      <nav class="topnav">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#movimientos">Movimientos</a>
+        <a href="#consultor">Consultor IA</a>
+      </nav>
+    </header>
 
-      <div class="col-md-6 d-flex">
-
-       <div class="card shadow-sm p-3 w-100">
-        <h5>Gastos por Categoría</h5>
-        <div id="gastosChart"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<br>
-
-
-
-  <!-- Sección de características -->
-  
-<section id="features" class="features" >
-  <div class="container">
-    <h2 class="mb-5 text-center">Características que simplifican tus finanzas</h2>
-    
-    <div class="row justify-content-center">
-      <div class="col-md-4 mb-4">
-        <div class="feature h-100">
-          <h3>📊 Estadísticas claras</h3>
-          <p>Visualiza tus gastos e ingresos con gráficos fáciles de entender.</p>
-          <img src="images/estadisticas.jpg" alt="Gráfico de estadísticas financieras">
+    <main class="main-grid">
+      <section class="hero-card">
+        <div class="hero-copy">
+          <span class="eyebrow">FinTrack 2026</span>
+          <h2>Domina tus gastos con claridad y una IA que te aconseja.</h2>
+          <p class="hero-text">Registra ingresos y gastos, visualiza tu salud financiera y obtén un consejo corto y motivador basado en tus datos actuales.</p>
         </div>
-      </div>
-
-      <div class="col-md-4 mb-4">
-        <div class="feature h-100">
-          <h3>🔒 Seguridad</h3>
-          <p>Tus datos están protegidos con encriptación avanzada.</p>
-          <img src="images/seguridad.avif" alt="Icono de seguridad digital">
+        <div class="hero-actions">
+          <a class="button button-secondary" href="#movimientos">Agregar movimiento</a>
+          <button id="consultarIA" class="button button-primary">Obtener consejo</button>
         </div>
-      </div>
+      </section>
 
-      <div class="col-md-4 mb-4">
-        <div class="feature h-100">
-          <h3>📱 100% responsive</h3>
-          <p>Accede desde cualquier dispositivo, sin complicaciones.</p>
-          <img src="images/celular.png" alt="Vista móvil de la aplicación">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <br>
-
- <!-- Sección de precios -->
-  <div id ="pricing" class="container py-5">
-    <div class="pricing-header">
-      <h1>Elige tu plan</h1>
-      <p class="text-light">Selecciona el plan que mejor se ajuste a tus necesidades.</p>
-    </div>
-
-    <div class="row row-cols-1 row-cols-md-3 mb-4 text-center">
-      <!-- Plan Gratis -->
-      <div class="col mb-4">
-        <div class="card card-pricing h-100">
-          <div class="card-header">Gratis</div>
-          <div class="card-body d-flex flex-column">
-            <h2 class="price">$0 <small class="text-muted">/ mes</small></h2>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Hasta 50 movimientos</li>
-              <li>1 cuenta bancaria</li>
-              <li>Soporte por correo electrónico</li>
-              <li>Acceso básico</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-outline-primary mt-auto">Empezar</button>
+      <section id="dashboard" class="grid-two">
+        <article class="card summary-card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">Resumen financiero</span>
+              <h2>Estado actual</h2>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Plan Pro -->
-      <div class="col mb-4">
-        <div class="card card-pricing h-100 highlight">
-          <div class="card-header">Pro</div>
-          <div class="card-body d-flex flex-column">
-            <h2 class="price">$19 <small class="text-muted">/ mes</small></h2>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Movimientos ilimitados</li>
-              <li>Múltiples cuentas</li>
-              <li>Soporte prioritario</li>
-              <li>Acceso completo + chatbot</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-primary mt-auto">Contratar</button>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <p>Balance</p>
+              <strong id="balance">$0.00</strong>
+            </div>
+            <div class="stat-card">
+              <p>Ingresos</p>
+              <strong id="ingresosTotal">$0.00</strong>
+            </div>
+            <div class="stat-card">
+              <p>Gastos</p>
+              <strong id="egresosTotal">$0.00</strong>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Plan Empresarial -->
-      <div class="col mb-4">
-        <div class="card card-pricing h-100">
-          <div class="card-header">Empresa</div>
-          <div class="card-body d-flex flex-column">
-            <h2 class="price">$49 <small class="text-muted">/ mes</small></h2>
-            <ul class="list-unstyled mt-3 mb-4">
- <li>Movimientos ilimitados</li>
-<li>Múltiples cuentas empresariales</li>
-<li>Soporte dedicado</li>
-<li>Acceso completo, extras y chatbot</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-outline-primary mt-auto">Contratar</button>
+          <div class="charts-grid">
+            <div class="chart-card">
+              <p class="chart-title">Balance histórico</p>
+              <div id="balanceChart" class="chart-placeholder"></div>
+            </div>
+            <div class="chart-card">
+              <p class="chart-title">Gastos por categoría</p>
+              <div id="gastosChart" class="chart-placeholder"></div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </article>
 
- 
+        <article id="consultor" class="card advice-card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">Consultor Financiero IA</span>
+              <h2>Consejo inteligente</h2>
+            </div>
+          </div>
+          <div id="iaAdvice" class="advice-panel">
+            <p>Presiona “Obtener consejo” para que Gemini analice tus últimos movimientos y te recomiende una mejora concreta.</p>
+          </div>
+          <div class="advice-actions">
+            <button id="voiceAdvice" class="button button-outline hidden">Escuchar consejo</button>
+          </div>
+        </article>
 
+        <article id="movimientos" class="card form-card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">Registrar</span>
+              <h2>Nuevo movimiento</h2>
+            </div>
+          </div>
+          <form id="movimientos-form" class="form-grid">
+            <label class="field-group">
+              <span>Descripción</span>
+              <input type="text" id="descripcion" placeholder="Ej. Supermercado" required>
+            </label>
+            <label class="field-group">
+              <span>Monto</span>
+              <input type="number" id="monto" placeholder="0.00" min="0.01" step="0.01" required>
+            </label>
+            <label class="field-group">
+              <span>Tipo</span>
+              <select id="tipo">
+                <option value="ingreso">Ingreso</option>
+                <option value="egreso">Gasto</option>
+              </select>
+            </label>
+            <button type="submit" class="button button-primary full-width">Agregar movimiento</button>
+          </form>
+        </article>
 
- <!-- Botón flotante del chat -->
-<div id="chat-toggle">
-  💬
-</div>
+        <article class="card list-card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">Movimientos recientes</span>
+              <h2>Últimos registros</h2>
+            </div>
+          </div>
+          <ul id="transacciones" class="transaction-list"></ul>
+        </article>
+      </section>
+    </main>
 
-<!-- Ventana del chat -->
-<div id="chat-widget" class="chat-closed">
-  <div class="chat-header">
-    <h5>Asistente Financiero</h5>
-    <span id="close-chat">&times;</span>
-  </div>
-
-  <div class="chat-body" id="chat-box">
-  <p class="bot-message">👋 ¡Hola! Soy tu asistente financiero.</p>
-  <p class="bot-message">Podés preguntarme cosas como:</p>
-  <ul class="bot-message list-unstyled">
-    <li>💰 "¿Cómo puedo ahorrar más?"</li>
-    <li>🍔 "Ver mis gastos de comida"</li>
-    <li>📊 "Cómo voy este mes"</li>
-  </ul>
-</div>
-
-  <div class="chat-footer">
-    <input type="text" id="user-input" placeholder="Escribí tu consulta...">
-    <button onclick="handleInput()">Enviar</button>
-  </div>
-</div>
-
-<br>
-  
-
-  <!-- Footer -->
-    <footer id="contact" class="pt-4 text-center">
-      <p class="text-light">© 2025 FinTrack. Todos los derechos reservados.</p>
-      <p>Desarrollado por FranPdev</p>
-
-       <!-- Redes -->
-<ul class="wrapper">
-  <li class="icon github">
-    <a href="https://github.com/franPdev" target="_blank">
-      <span class="tooltip">GitHub</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 16 16"
-        height="1.6em"
-        fill="currentColor"
-      >
-        <path
-          d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 
-          0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
-          -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
-          -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1
-          0 0 .67-.21 2.2.82a7.6 7.6 0 012 0c1.53-1.03 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1
-          .51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
-          0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.001 8.001 0 008 0z"
-        />
-      </svg>
-    </a>
-  </li>
-
-  <li class="icon linkedin">
-    <a href="https://www.linkedin.com/in/franco-paez-6159b0214/" target="_blank">
-      <span class="tooltip">LinkedIn</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="1.4em"
-        viewBox="0 0 448 512"
-        fill="currentColor"
-      >
-        <path
-          d="M100.28 448H7.4V148.9h92.88zm-46.44-340C24.16 108 0 83.77 0 
-          54.26A54.26 54.26 0 01108.52 54.3c0 29.5-24.16 53.74-54.68 53.74zM447.9 
-          448h-92.68V302.4c0-34.7-.7-79.3-48.31-79.3-48.4 0-55.8 37.8-55.8 
-          76.9V448H158.5V148.9h89.1v40.8h1.3c12.4-23.6 42.6-48.4 
-          87.8-48.4 93.9 0 111.1 61.8 111.1 142.3V448z"
-        />
-      </svg>
-    </a>
-  </li>
-
-  <li class="icon gmail">
-    <a href="mailto:francoarielpaez@gmail.com">
-      <span class="tooltip">Gmail</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="1.5em"
-        viewBox="0 0 512 512"
-        fill="currentColor"
-      >
-        <path
-          d="M502.3 190.8L327.4 338.7c-17.6 14.3-41.1 14.3-58.7 0L9.7 
-          190.8C3.7 186.1 0 179 0 171.2V144c0-26.5 21.5-48 48-48h416c26.5 
-          0 48 21.5 48 48v27.2c0 7.8-3.7 14.9-9.7 19.6zM480 
-          208v208c0 26.5-21.5 48-48 48H80c-26.5 
-          0-48-21.5-48-48V208l196.8 159.8c24.9 
-          20.3 60.4 20.3 85.3 0L480 208z"
-        />
-      </svg>
-    </a>
-  </li>
-</ul>
-
-
+    <footer class="footer">
+      <p>FinTrack 2026 · Tu panel financiero inteligente.</p>
     </footer>
+  </div>
 
-
-
-
-<!-- ApexCharts -->
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-
-<!-- Fuse.js -->
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
-<script src="js/script.js"></script>
-<script src="js/chatbot.js"></script>
-
-
-
-
-
-
- 
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,84 +1,89 @@
-# FinTrack - App de Finanzas (Front-end)
+# FinTrack AI - Gestor de Finanzas Inteligente 🤖💰
 
-**FinTrack** es una interfaz moderna y responsive para el control de finanzas personales.
-Permite visualizar balances, ingresos, egresos y ahorros mediante gráficos interactivos y un diseño oscuro, simple y elegante.
+**FinTrack AI** es una solución avanzada de gestión financiera personal que combina un diseño de vanguardia con el poder de la **Inteligencia Artificial**. No solo registra tus gastos, sino que los entiende.
 
----
-
-## 🧭 Descripción
-
-La aplicación está compuesta por distintas secciones que simulan el flujo de una app de finanzas:
-
-- **Dashboard con gráficos dinámicos** (ApexCharts) que muestran el balance y la distribución de gastos.
-- **Formulario de transacciones** para registrar ingresos o egresos y verlos reflejados en la lista de movimientos.
-- **Chatbot local** con respuestas predefinidas y búsqueda difusa (Fuse.js).
-- **Secciones integradas**: hero, balance, características, planes, chat y footer con enlaces a redes y contacto.
-
-> Actualmente, el proyecto es completamente estático y utiliza librerías cargadas desde CDNs.
+> **Update 2026:** El proyecto ha sido evolucionado de una interfaz estática a una aplicación funcional integrada con **Google Gemini AI**.
 
 ---
 
-## 🧩 Tecnologías utilizadas
+## 🧭 ¿Qué hace a FinTrack diferente?
 
-- **HTML5**
-- **CSS3** — estilos personalizados (`css/styles.css`)
-- **JavaScript** — lógica funcional y manejo del DOM (`js/script.js`, `js/chatbot.js`)
-- **Bootstrap 5** — estructura y componentes
-- **ApexCharts** — visualización de datos
-- **Fuse.js** — búsqueda difusa en el chatbot
+A diferencia de los gestores tradicionales, FinTrack utiliza modelos de lenguaje de última generación para actuar como un mentor financiero:
+
+- **🤖 Consultor Financiero IA:** Integración directa con la API de **Google Gemini (1.5 Flash)**. El sistema analiza tus movimientos reales y genera consejos personalizados y motivadores.
+- **🛡️ Resiliencia (Modo Offline):** Implementación de una lógica de respaldo que garantiza el funcionamiento del consultor mediante un motor de análisis local si la conexión a la API no está disponible.
+- **📊 Visualización Dinámica:** Dashboards interactivos construidos con **ApexCharts** que se actualizan en tiempo real al ingresar nuevos datos.
+- **🎙️ Accesibilidad Avanzada:** Los consejos de la IA no solo se leen, ¡se escuchan! Integración con la Web Speech API para síntesis de voz.
+- **📱 Interfaz Minimalista:** Diseño "Ultra-Clean" enfocado en la usabilidad y la estética moderna.
 
 ---
 
-## 📁 Estructura del proyecto (`public/`)
+## 🧩 Tech Stack
 
-├── public/
-│   ├── index.html
-│   ├── css/
-│   │   └── styles.css
-│   ├── js/
-│   │   ├── script.js
-│   │   └── chatbot.js
-│   └── images/
-│       ├── seguridad.avif
-│       ├── estadisticas.jpg
-│       └── celular.png
-├── README.md
-└── .gitignore
+- **Lógica & Core:** JavaScript ES6+ (Manejo de estados y persistencia en LocalStorage).
+- **IA & Procesamiento:** Google Gemini API (Model: 1.5 Flash).
+- **UI/UX:** HTML5, CSS3 Moderno, Bootstrap 5.
+- **Gráficos:** ApexCharts.
+- **Búsqueda:** Fuse.js para filtrado inteligente de movimientos.
+
 ---
 
-## ⚙️ Cómo ejecutarlo localmente
+## 📁 Estructura del Proyecto
 
-Podés abrir `index.html` directamente en tu navegador o usar un servidor estático local para asegurar que los assets funcionen correctamente.
+```text
+├── index.html          # Estructura principal y componentes UI
+├── css/
+│   └── styles.css      # Diseño minimalista y animaciones
+├── js/
+│   └── script.js       # Lógica de finanzas e integración de IA
+└── README.md
+```
 
-### Opción 1 — Abrir directamente
-- Abrir `public/index.html` en el navegador.
-	*(Puede no funcionar correctamente con rutas relativas en algunos navegadores.)*
+---
 
-### Opción 2 — Servidor local con Python
+## ⚙️ Configuración y Uso Local
+
+Para experimentar el poder total de la IA en este proyecto:
+
+1. **Clonar el repositorio**
+
+2. **Obtener una API Key:** Consigue tu llave gratuita en [Google AI Studio](https://aistudio.google.com).
+
+3. **Configurar la Key:** En `js/script.js`, asigna tu llave a la variable `API_KEY`:
+   ```javascript
+   const API_KEY = 'tu_clave_aqui';
+   ```
+
+4. **Ejecutar:** Abre `index.html` (se recomienda usar la extensión **Live Server** en VS Code para una mejor experiencia con las APIs).
+
+### Opción: Servidor local con Python
 ```bash
 cd public
 python -m http.server 5500
 ```
 Luego abrir http://localhost:5500
 
-### Opción 3 — Servidor local con Node.js
+### Opción: Servidor local con Node.js
 ```bash
 cd public
 npx http-server -p 5500
 ```
 Luego abrir http://127.0.0.1:5500
 
-🌐 CDNs utilizadas
+---
 
-- ApexCharts: https://cdn.jsdelivr.net/npm/apexcharts
-- Fuse.js: https://cdn.jsdelivr.net/npm/fuse.js@6.6.2
-- Bootstrap CSS: https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css
-- Bootstrap JS: https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js
+## 🌐 CDNs utilizadas
 
-👨‍💻 Desarrollado por
+- **ApexCharts:** https://cdn.jsdelivr.net/npm/apexcharts
+- **Google Fonts (Inter):** https://fonts.googleapis.com
+- **ApexCharts Styles:** Incluido en el CDN
 
-FranPdev
-📧 francoarielpaez@gmail.com
+---
 
-🔗 GitHub
-https://github.com/franPdev
+## 👨‍💻 Sobre el Desarrollador
+
+**Franco Páez (FranPdev)** — Apasionado por crear herramientas que simplifiquen la vida de las personas a través de la tecnología y la IA.
+
+📧 **francoarielpaez@gmail.com**
+
+🔗 **[GitHub](https://github.com/franPdev) | [LinkedIn](https://www.linkedin.com/in/franco-paez-6159b0214/)**
